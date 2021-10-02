@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
                         String description = jsonObjectWeather.getString("description");
                         JSONObject jsonObjectMain = jsonResponse.getJSONObject("main");
                         double temp = jsonObjectMain.getDouble("temp") - 273.15;
-                        double feelslike = jsonObjectMain.getDouble("feels like") - 273.15;
+                        double feels_like = jsonObjectMain.getDouble("feels_like") - 273.15;
                         float pressure = jsonObjectMain.getInt("pressure");
-                        int humidity = jsonObjectMain.getInt("Humidity");
-                        JSONObject jsonObjectWind = jsonResponse.getJSONObject("Wind");
+                        int humidity = jsonObjectMain.getInt("humidity");
+                        JSONObject jsonObjectWind = jsonResponse.getJSONObject("wind");
                         String wind = jsonObjectWind.getString("speed");
                         JSONObject jsonObjectClouds = jsonResponse.getJSONObject("clouds");
                         String clouds = jsonObjectClouds.getString("all");
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         tvResult.setTextColor(Color.rgb(68,134,199));
                         output += "Current weather of " + cityName + "(" + countryName + ")"
                                 + "\n Temp: " + df.format(temp) + "°C"
-                                + "\n Feels Like: " + df.format(feelslike) + "°C"
+                                + "\n Feels Like: " + df.format(feels_like) + "°C"
                                 + "\n Humidity: " + humidity + "%"
                                 + "\n Description: " + description
                                 + "\n Wind Speed: " + wind + "m/s (meters per second)"
